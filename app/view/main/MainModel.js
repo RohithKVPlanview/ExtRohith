@@ -12,7 +12,9 @@ Ext.define('MyApp.view.main.MainModel', {
 
         loremIpsum: 'hello world',
 
-        elapsedTime: 0
+        elapsedTime: 0,
+
+        counter:0
     },
 
     formulas: {

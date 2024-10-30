@@ -136,5 +136,41 @@ Ext.define('MyApp.view.main.Main', {
                     ]
                 }
             ]
+        },{
+            title : 'Counter',
+            iconCls: 'x-fa fa-cog',
+            layout: 'vbox',
+            items: [
+                {
+                    xtype: 'displayfield',
+                    itemId: 'timeDisplay',
+                    bind: '{counter}', // Bind to ViewModel's Counter
+                    fieldStyle: 'font-size: 24px; text-align: center;',
+                    margin: 10
+                },
+                {
+                    xtype: 'container',
+                    layout: 'hbox',
+                    items: [
+                        {
+                            xtype: 'button',
+                            text: '+',
+                            handler: 'onAddOne',  // Event handler in the Controller
+                            margin: '0 10 0 0'
+                        },
+                        {
+                            xtype: 'button',
+                            text: '-',
+                            handler: 'onReduceOne',
+                            margin: '0 10 0 0'
+                        },
+                        {
+                            xtype: 'button',
+                            text: 'Reset',
+                            handler: 'onResetCounter'
+                        }
+                    ]
+                }
+            ]
         }]
 });

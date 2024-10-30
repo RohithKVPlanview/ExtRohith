@@ -8,13 +8,14 @@ Ext.define('MyApp.view.main.MainController', {
 
     alias: 'controller.main',
     intervalId: null,
+
     onStartStopwatch: function() {
         // Prevent multiple intervals from running
         if (this.intervalId){ return; }
 
         // Start the stopwatch, update elapsed time every second
         this.intervalId = setInterval(() => {
-            var viewModel = this.getViewModel();
+            let viewModel = this.getViewModel();
             viewModel.set('elapsedTime', viewModel.get('elapsedTime') + 1);
         }, 1000);
     },
@@ -31,6 +32,20 @@ Ext.define('MyApp.view.main.MainController', {
         // Reset elapsed time and clear interval
         this.onStopStopwatch();
         this.getViewModel().set('elapsedTime', 0);
+    },
+
+    onAddOne: function(){
+        let viewModel = this.getViewModel();
+        viewModel.set('counter',viewModel.get('counter')+1);
+    },
+    onReduceOne: function() {
+        let viewModel = this.getViewModel();
+        viewModel.set('counter',viewModel.get('counter')-1);
+    },
+
+    onResetCounter: function() {
+        let viewModel = this.getViewModel();
+        viewModel.set('counter',0);
     },
     onItemSelected: function (sender, record) {
         Ext.Msg.confirm('Confirm', 'Are you sure?', 'onConfirm', this);
