@@ -172,5 +172,8 @@ Ext.define('MyApp.view.main.Main', {
                     ]
                 }
             ]
+        },{
+            title: 'API Data',
+            xtype: 'datalist' // Use the DataList view defined earlier
         }]
 });
