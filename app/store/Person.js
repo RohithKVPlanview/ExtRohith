@@ -6,10 +6,10 @@ Ext.define('MyApp.store.Person', {
 
     proxy: {
         type: 'ajax',
-        url: 'http://localhost:3000/data', // Replace with your API endpoint
+        url: 'http://localhost:3000/data',
         reader: {
             type: 'json',
-            rootProperty: ' ' // Adjust based on your API response structure
+            rootProperty: ' '
         }
     },
     autoLoad: true // Automatically load data when the store is instantiated

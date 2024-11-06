@@ -8,7 +8,13 @@ Ext.define('MyApp.view.main.MainController', {
 
     alias: 'controller.main',
     intervalId: null,
-
+    onLogin: function(button) {
+        const form = button.up('form').getForm();
+        if (form.isValid()) {
+            Ext.Msg.alert('Success', 'Login successful!');
+            button.up('window').close(); // Close login window on success
+        }
+    },
     onStartStopwatch: function() {
         // Prevent multiple intervals from running
         if (this.intervalId){ return; }

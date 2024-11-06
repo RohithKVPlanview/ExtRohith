@@ -5,6 +5,7 @@
  *
  * TODO - Replace this content of this view to suite the needs of your application.
  */
+/* jshint esversion: 6 */
 Ext.define('MyApp.view.main.Main', {
     extend: 'Ext.tab.Panel',
     xtype: 'app-main',
@@ -175,5 +176,13 @@ Ext.define('MyApp.view.main.Main', {
         },{
             title: 'API Data',
             xtype: 'datalist' // Use the DataList view defined earlier
-        }]
+        }],
+
+    listeners: {
+        afterrender: function() {
+            // Show the login window as a modal before allowing access to the main view
+            const loginWindow = Ext.create('MyApp.view.main.Login');
+            loginWindow.show();
+        }
+    }
 });
