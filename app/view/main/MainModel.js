@@ -17,6 +17,7 @@ Ext.define('MyApp.view.main.MainModel', {
         counter:0
     },
 
+
     formulas: {
         // Format the elapsed time as HH:MM:SS for display
         elapsedTimeFormatted: function(get) {

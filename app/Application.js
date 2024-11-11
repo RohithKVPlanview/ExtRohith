@@ -8,6 +8,7 @@ Ext.define('MyApp.Application', {
 
     name: 'MyApp',
 
+
     quickTips: false,
     platformConfig: {
         desktop: {

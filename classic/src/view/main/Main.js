@@ -176,13 +176,34 @@ Ext.define('MyApp.view.main.Main', {
         },{
             title: 'API Data',
             xtype: 'datalist' // Use the DataList view defined earlier
+        },
+        {
+         title: 'GantChart',
+         xtype: 'ganttchart',
+        },
+        {
+            title: 'addTask',
+            xtype: 'addtaskform',
+        },
+        {
+            title: 'Graph',
+            xtype: 'graph1'
         }],
 
     listeners: {
         afterrender: function() {
-            // Show the login window as a modal before allowing access to the main view
-            const loginWindow = Ext.create('MyApp.view.main.Login');
-            loginWindow.show();
+            // Check if the login has already been shown
+            const isFirstVisit = localStorage.getItem('isFirstVisit');
+
+            // Show the login window only if it's the first visit
+            if (!isFirstVisit) {
+                const loginWindow = Ext.create('MyApp.view.main.Login');
+                loginWindow.show();
+
+                // Mark as visited so it doesn’t show again
+                localStorage.setItem('isFirstVisit', 'true');
+            }
         }
     }
+
 });
